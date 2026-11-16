@@ -15,13 +15,15 @@ Test 2 on a public Vercel URL.
 
 ## Status
 
-Everything is complete: implementation, Supabase integration, repo, CI, deployment, clean
-demo feed, refreshed screenshots, live verification, and reviewer notes. The canonical live
-URL is `https://my-wall-calfredo.vercel.app`.
+Photo upload is implemented and verified locally. The migration and Storage bucket are live;
+the app code is not deployed yet. The E2E suite added three temporary text rows to the
+public feed.
 
 ## Next action
 
-Submit Test 2 with the live URL, public repo, screenshots, and reviewer notes.
+1. Run `supabase/demo-posts.sql` to remove the E2E rows; keep the photo post.
+2. Recapture the desktop/mobile screenshots against the clean six-post feed.
+3. Deploy, verify the live photo post and Realtime, then submit Test 2.
 
 ## Acceptance criteria
 
@@ -33,3 +35,4 @@ Submit Test 2 with the live URL, public repo, screenshots, and reviewer notes.
 6. Public repo and Vercel production URL.
 7. Typecheck, lint, unit, build, and Playwright pass.
 8. Screenshots include a posted message on desktop and mobile.
+9. Optional photo upload saves an image, renders it in the feed, and survives refresh.

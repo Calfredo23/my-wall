@@ -300,6 +300,74 @@
   font-weight: 700;
 }
 
+.wall-photo-pick {
+  display: inline-flex;
+  min-height: 26px;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid #b8c2d1;
+  background: #f7f7f7;
+  padding: 3px 10px;
+  color: #3b5998;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.wall-photo-pick:hover {
+  background: #eef1f6;
+}
+
+.wall-photo-pick:focus-within {
+  outline: 2px solid #3b5998;
+  outline-offset: 1px;
+}
+
+.wall-photo-preview {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin-top: 6px;
+  border: 1px solid #d8d8d8;
+  background: #f7f7f7;
+  padding: 6px;
+}
+
+.wall-photo-preview-image {
+  width: 112px;
+  height: 84px;
+  border: 1px solid #bdc7d8;
+  background: #ffffff;
+  object-fit: cover;
+}
+
+.wall-photo-preview-meta {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.wall-photo-name {
+  max-width: 100%;
+  overflow: hidden;
+  color: #555555;
+  font-size: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wall-photo-remove {
+  align-self: flex-start;
+  border: 0;
+  background: none;
+  padding: 0;
+  color: #8a2a22;
+  font-size: 10px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .wall-button {
   min-height: 26px;
   border: 1px solid #29447e;
@@ -392,6 +460,27 @@
   line-height: 1.4;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
+}
+
+.wall-post-photo {
+  display: block;
+  max-width: 520px;
+  margin-top: 7px;
+  border: 1px solid #bdc7d8;
+  background: #ffffff;
+  padding: 2px;
+}
+
+.wall-post-photo:hover {
+  border-color: #3b5998;
+}
+
+.wall-post-photo img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 420px;
 }
 
 .wall-setup {

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Avatar } from "@/components/avatar";
 import { formatPostTime, type Post } from "@/lib/posts";
 
@@ -20,6 +21,22 @@ export function PostCard({ post }: { post: Post }) {
         <p data-testid="wall-post-content" className="wall-post-content">
           {post.content}
         </p>
+        {post.imageUrl ? (
+          <a
+            href={post.imageUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="wall-post-photo"
+            data-testid="wall-post-image-link"
+          >
+            <img
+              src={post.imageUrl}
+              alt={`Photo shared by ${post.author}`}
+              loading="lazy"
+              data-testid="wall-post-image"
+            />
+          </a>
+        ) : null}
       </div>
     </article>
   );

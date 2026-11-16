@@ -6,7 +6,7 @@ const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://my-wall-calfredo.vercel.app";
 const title = "The Wall — a 2008-style social wall";
 const description =
-  "A small 2008-style social wall built with Next.js, React, and Supabase. Share a message, see it in the feed, and keep it after a refresh.";
+  "A small 2008-style social wall built with Next.js, React, and Supabase. Share a message and a photo, see it in the feed, and keep it after a refresh.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     "React",
     "Next.js",
     "Supabase",
+    "photo upload",
     "portfolio",
   ],
   alternates: { canonical: "/" },

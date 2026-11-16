@@ -14,6 +14,7 @@ import {
   sortPosts,
   type Post,
 } from "@/lib/posts";
+import { IMAGE_BUCKET, imageObjectName } from "@/lib/images";
 import {
   getSupabaseClient,
 } from "@/lib/supabase/client";
@@ -72,6 +73,7 @@ export function Wall({
   );
   const [loadError, setLoadError] = useState<string | null>(initialError);
   const [draft, setDraft] = useState("");
+  const [composerKey, setComposerKey] = useState(0);
   const [submitting, setSubmitting] = useState(false);
   const [composerError, setComposerError] = useState<string | null>(null);
   const [live, setLive] = useState(false);
@@ -83,7 +85,7 @@ export function Wall({
     }
     const { data, error } = await supabase
       .from("posts")
-      .select("id,author,content,created_at")
+      .select("id,author,content,image_url,created_at")
       .order("created_at", { ascending: false })
       .limit(FEED_LIMIT);
 
@@ -137,7 +139,7 @@ export function Wall({
     };
   }, [supabase]);
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (image: File | null) => {
     if (!supabase) {
       return;
     }
@@ -150,30 +152,71 @@ export function Wall({
     setSubmitting(true);
     setComposerError(null);
 
+    let imageUrl: string | null = null;
+    let uploadedPath: string | null = null;
+
+    if (image) {
+      const objectName = imageObjectName(image.type);
+      const { error: uploadError } = await supabase.storage
+        .from(IMAGE_BUCKET)
+        .upload(objectName, image, {
+          contentType: image.type,
+          cacheControl: "31536000",
+        });
+
+      if (uploadError) {
+        setSubmitting(false);
+        setComposerError(
+          "Couldn't upload that photo. Try a JPEG, PNG, or WebP under 5 MB.",
+        );
+        return;
+      }
+
+      uploadedPath = objectName;
+      imageUrl = supabase.storage
+        .from(IMAGE_BUCKET)
+        .getPublicUrl(objectName).data.publicUrl;
+    }
+
     const { data, error: insertError } = await supabase
       .from("posts")
-      .insert({ content: normalizeMessage(draft) })
-      .select("id,author,content,created_at")
+      .insert({
+        content: normalizeMessage(draft),
+        ...(imageUrl ? { image_url: imageUrl } : {}),
+      })
+      .select("id,author,content,image_url,created_at")
       .single();
 
     if (insertError) {
+      if (uploadedPath) {
+        await supabase.storage.from(IMAGE_BUCKET).remove([uploadedPath]);
+      }
       setSubmitting(false);
-      setComposerError("Couldn't share that. Check the Supabase table and try again.");
+      setComposerError(
+        "Couldn't share that. Check the Supabase table and try again.",
+      );
       return;
     }
 
     const post = parsePost(data);
     if (!post) {
       setSubmitting(false);
-      setComposerError("The post was saved but the response was incomplete. Refresh the wall.");
+      setComposerError(
+        "The post was saved but the response was incomplete. Refresh the wall.",
+      );
       return;
     }
 
     setPosts((current) => mergePosts(current, [post]));
     setStatus("ready");
     setDraft("");
+    setComposerKey((current) => current + 1);
     setSubmitting(false);
-    setAnnouncement("Your post is on the wall.");
+    setAnnouncement(
+      image
+        ? "Your post with a photo is on the wall."
+        : "Your post is on the wall.",
+    );
   };
 
   return (
@@ -205,6 +248,7 @@ export function Wall({
 
           {status !== "unconfigured" && status !== "error" ? (
             <Composer
+              key={composerKey}
               value={draft}
               onChange={(next) => {
                 setDraft(next);

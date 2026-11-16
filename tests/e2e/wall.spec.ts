@@ -118,4 +118,18 @@ test.describe("Supabase flow", () => {
     await expect(page.getByTestId("character-count")).toHaveText("280/280");
     await expect(page.getByTestId("share-post")).toBeEnabled();
   });
+
+  test("the composer rejects unsupported photo files", async ({ page }) => {
+    await requireSupabase(page);
+    const photo = page.getByTestId("wall-photo");
+    await expect(photo).toHaveAttribute("accept", "image/jpeg,image/png,image/webp");
+    await photo.setInputFiles({
+      name: "note.txt",
+      mimeType: "text/plain",
+      buffer: Buffer.from("not an image"),
+    });
+    await expect(page.getByTestId("composer-error")).toContainText(
+      "JPEG, PNG, or WebP",
+    );
+  });
 });

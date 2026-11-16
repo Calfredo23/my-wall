@@ -68,3 +68,13 @@
   The old `my-wall-coral.vercel.app` now returns 404.
 - Updated the metadata fallback, README, reviewer notes, and Velitaxis state to the new
   domain. Next: redeploy and confirm the canonical URL follows.
+
+## 2026-11-16 — Bonus photo upload
+
+- Added `posts.image_url`, `supabase/photo-upload.sql`, and a public `post-images` bucket
+  limited to JPEG/PNG/WebP and 5 MB.
+- Added composer photo picker, preview/remove, storage upload, feed rendering, and safe
+  `https` URL parsing. Added type/size validation and 4 new unit tests.
+- Local verification: 15 unit and 9 Playwright pass. A real PNG upload rendered in the feed
+  and survived reload. The E2E run added three temporary text rows.
+- Next: run `supabase/demo-posts.sql`, recapture screenshots, deploy, verify live, submit.

@@ -6,6 +6,7 @@ export type Post = {
   readonly id: string;
   readonly author: string;
   readonly content: string;
+  readonly imageUrl: string | null;
   readonly createdAt: string;
 };
 
@@ -53,8 +54,21 @@ export function parsePost(value: unknown): Post | null {
     id: row.id,
     author: row.author.trim(),
     content,
+    imageUrl: parseImageUrl(row.image_url),
     createdAt,
   };
+}
+
+function parseImageUrl(value: unknown): string | null {
+  if (typeof value !== "string" || value.trim().length === 0) {
+    return null;
+  }
+  try {
+    const url = new URL(value.trim());
+    return url.protocol === "https:" ? url.href : null;
+  } catch {
+    return null;
+  }
 }
 
 export function sortPosts(posts: readonly Post[]): Post[] {

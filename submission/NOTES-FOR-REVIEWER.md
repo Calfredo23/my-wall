@@ -11,14 +11,16 @@ the database on each request.
 browser.
 
 **Extras:** 280-character limit in the composer and as a database check, Supabase
-Realtime so a second visitor sees new posts without refreshing, empty/loading/error
-states, responsive layout, and axe-checked accessibility.
+Realtime so a second visitor sees new posts without refreshing, optional photo upload
+(JPEG/PNG/WebP up to 5 MB), empty/loading/error states, responsive layout, and
+axe-checked accessibility. Photos are stored in the public `post-images` Supabase Storage
+bucket and linked from the post row.
 
 **Author:** posts use a fixed author name, `Cedrick Alfredo Catimbang`. There is no
 login, as allowed by the brief.
 
 **Stack:** Next.js 16 App Router, React 19, TypeScript strict, Tailwind 4,
-`@supabase/supabase-js`, Vercel, Vitest, Playwright, axe-core.
+`@supabase/supabase-js`, Supabase Storage, Vercel, Vitest, Playwright, axe-core.
 
 **Live:** https://my-wall-calfredo.vercel.app  
 **Repo:** https://github.com/Calfredo23/my-wall

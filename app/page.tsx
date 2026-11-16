@@ -12,7 +12,7 @@ export default async function Page() {
 
   const { data, error } = await supabase
     .from("posts")
-    .select("id,author,content,created_at")
+    .select("id,author,content,image_url,created_at")
     .order("created_at", { ascending: false })
     .limit(FEED_LIMIT);
 

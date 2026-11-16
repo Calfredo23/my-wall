@@ -16,6 +16,7 @@ function post(overrides: Partial<Post> = {}): Post {
     id: "post-1",
     author: "Cedrick Alfredo Catimbang",
     content: "Hello wall.",
+    imageUrl: null,
     createdAt: "2026-11-16T10:00:00.000Z",
     ...overrides,
   };
@@ -57,8 +58,25 @@ describe("parsePost", () => {
       id: "abc",
       author: "Cedrick",
       content: "Hello",
+      imageUrl: null,
       createdAt: "2026-11-16T10:00:00.000Z",
     });
+  });
+
+  it("parses a valid https image and ignores unsafe image URLs", () => {
+    const base = {
+      id: "abc",
+      author: "Cedrick",
+      content: "Hello",
+      created_at: "2026-11-16T10:00:00.000Z",
+    };
+    const imageUrl =
+      "https://example.supabase.co/storage/v1/object/public/post-images/a.jpg";
+
+    expect(parsePost({ ...base, image_url: imageUrl })?.imageUrl).toBe(imageUrl);
+    expect(
+      parsePost({ ...base, image_url: "javascript:alert(1)" })?.imageUrl,
+    ).toBeNull();
   });
 
   it("rejects malformed rows", () => {

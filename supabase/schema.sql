@@ -5,6 +5,7 @@ create table if not exists public.posts (
   id uuid primary key default gen_random_uuid(),
   author text not null default 'Cedrick Alfredo Catimbang',
   content text not null check (char_length(content) between 1 and 280),
+  image_url text,
   created_at timestamptz not null default now()
 );
 

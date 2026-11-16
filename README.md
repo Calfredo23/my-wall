@@ -14,7 +14,8 @@ Type a message, press **Share**, and it appears at the top of the feed. Posts ar
 - The post is saved in the `posts` table in Supabase.
 - The feed is newest-first and persists after refresh.
 
-Included extras: 280-character limit and Supabase Realtime.
+Included extras: 280-character limit, Supabase Realtime, and optional photo upload
+(JPEG, PNG, or WebP up to 5 MB).
 
 ## Screenshots
 
@@ -26,9 +27,11 @@ Included extras: 280-character limit and Supabase Realtime.
 
 1. Create a Supabase project.
 2. Open the SQL editor and run `supabase/schema.sql`.
-3. In **Project Settings → API**, copy the project URL and the publishable key
+3. For photo upload, run `supabase/photo-upload.sql`. It adds the `image_url` column,
+   creates the public `post-images` bucket, and adds the upload/read policies.
+4. In **Project Settings → API**, copy the project URL and the publishable key
    (`sb_publishable_...`). The legacy anon key also works.
-4. Put them in `.env.local` (copy `.env.example`):
+5. Put them in `.env.local` (copy `.env.example`):
 
 ```bash
 NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
@@ -36,9 +39,9 @@ NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=your-publishable-key
 # Legacy alternative: NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
 ```
 
-5. In **Database → Replication**, confirm `posts` is in the realtime publication.
-6. Optional: run `supabase/demo-posts.sql` to replace E2E rows with a small demo feed.
-7. Restart `npm run dev`.
+6. In **Database → Replication**, confirm `posts` is in the realtime publication.
+7. Optional: run `supabase/demo-posts.sql` to replace E2E rows with a small demo feed.
+8. Restart `npm run dev`.
 
 The app does not commit keys. Use the names above in Vercel as well.
 
@@ -60,10 +63,12 @@ Playwright uses port 3212. Supabase E2E tests are skipped unless the two `NEXT_P
 ## How it works
 
 - `app/page.tsx` renders the wall.
-- `components/wall.tsx` owns the feed state, initial fetch, insert, and Realtime subscription.
+- `components/wall.tsx` owns the feed state, initial fetch, photo upload, insert, and Realtime subscription.
 - `lib/posts.ts` holds validation, parsing, sorting, and deduplication.
+- `lib/images.ts` holds the photo type/size rules and storage object naming.
 - `lib/supabase/client.ts` creates the browser client from public env names.
 - The database enforces the 280-character rule and RLS allows public read/insert only.
+- Photos use the public `post-images` Supabase Storage bucket.
 
 ## License
 
