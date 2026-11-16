@@ -2,8 +2,8 @@
 
 Framework Version: 1.22.1
 Current Execution Mode: BALANCED
-Project Status: FEATURE_DEVELOPMENT
-Lifecycle Stage: 8 — QA, SECURITY, ACCESSIBILITY, AND PERFORMANCE
+Project Status: SUBMISSION_READY
+Lifecycle Stage: 10 — DELIVERY AND SUBMISSION
 Owner: Cedrick Alfredo Catimbang (Calfredo)
 
 ## What this is
@@ -26,8 +26,14 @@ Next.js 16.4.6 (App Router), React 19.3, TypeScript strict, Tailwind 4,
 
 ## Current state
 
-Local app is implemented and verified without Supabase credentials: typecheck, lint,
-10 unit tests, build, and 3 non-database Playwright tests pass. Supabase E2E tests are
-written and skipped until env vars exist. The UI is a retro blue wall with profile card,
-composer, feed, empty/error states, and a setup notice. No repo, deploy, or database
-project has been created yet.
+The local app is fully implemented and verified against Supabase: typecheck, lint, build,
+10 unit tests, and 8 Playwright tests pass, including post → reload persistence,
+newest-first ordering, Realtime, axe, and responsive checks. The public repo is
+`https://github.com/Calfredo23/my-wall`; CI passed at `af35ebb`. The public deployment is
+`https://my-wall-coral.vercel.app`; `https://my-wall.vercel.app` is an unrelated app.
+Supabase `public.posts` has RLS public select/insert, a 280-character check, and Realtime.
+Demo posts were seeded and final screenshots captured. Remaining work: push the fixed
+timezone/hydration and live-link updates, recheck the live deployment, then submit Test 2.
+
+Known deployment note: timestamps are formatted with `Asia/Manila` so the server and
+browser render identical text and do not trigger a hydration mismatch.

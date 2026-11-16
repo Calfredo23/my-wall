@@ -15,15 +15,17 @@ Test 2 on a public Vercel URL.
 
 ## Status
 
-Local UI and data layer are implemented. Supabase project/table/env setup is the next
-owner action. No repo or deployment yet.
+Implementation, Supabase integration, repo, CI, deployment, demo feed, and screenshots are
+done. A live hydration mismatch caused by server/browser timezone differences was fixed by
+pinning `formatPostTime` to `Asia/Manila`. The canonical live URL is
+`https://my-wall-coral.vercel.app`.
 
 ## Next action
 
-1. Owner creates the Supabase project, runs `supabase/schema.sql`, and adds
-   `NEXT_PUBLIC_SUPABASE_URL` + `NEXT_PUBLIC_SUPABASE_ANON_KEY` to `.env.local`.
-2. Run the Supabase Playwright flow, then create the public GitHub repo and Vercel project.
-3. Capture screenshots, add reviewer notes, deploy, smoke the live URL, submit.
+1. Push the timezone fix and live-link updates.
+2. Confirm the Vercel redeploy is public and has no console errors.
+3. Run a final live post → refresh → Realtime check, then submit Test 2 with the live URL,
+   repo, screenshots, and reviewer notes.
 
 ## Acceptance criteria
 

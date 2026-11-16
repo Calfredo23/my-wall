@@ -2,9 +2,11 @@
 
 ## Tests
 
-- Vitest: 10 passing (validation, parsing, ordering, deduplication, time formatting).
-- Playwright: 7 defined; 3 pass without Supabase, 4 skipped until env exists.
-- axe: 0 violations on the opening/setup wall after contrast correction.
+- Vitest: 10 passing (validation, parsing, ordering, deduplication, fixed-timezone formatting).
+- Playwright: 8 passing with Supabase (post, reload persistence, newest-first, Realtime,
+  over-limit rejection, axe, responsive widths, screenshots).
+- Live smoke: public Vercel URL, post → refresh persistence, Realtime.
+- axe: 0 violations on the opening wall after contrast correction.
 - Responsive: no horizontal page scroll at 360, 768, and 1440.
 
 ## Build

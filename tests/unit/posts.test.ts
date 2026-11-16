@@ -105,8 +105,13 @@ describe("feed ordering", () => {
 });
 
 describe("formatPostTime", () => {
-  it("formats a valid timestamp and ignores an invalid one", () => {
-    expect(formatPostTime("2026-11-16T10:00:00.000Z")).not.toBe("");
+  it("formats a valid timestamp in a fixed timezone", () => {
+    expect(formatPostTime("2026-11-16T10:00:00.000Z")).toBe(
+      "Nov 16, 2026, 6:00 PM",
+    );
+  });
+
+  it("ignores an invalid timestamp", () => {
     expect(formatPostTime("nope")).toBe("");
   });
 });
