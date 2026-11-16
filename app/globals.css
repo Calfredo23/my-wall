@@ -1,0 +1,523 @@
+@import "tailwindcss";
+
+@theme {
+  --color-wall-blue: #3b5998;
+  --color-wall-blue-dark: #2f477a;
+  --color-wall-blue-light: #d8dfea;
+  --color-wall-bg: #f7f7f7;
+  --color-wall-border: #c9d0da;
+  --color-wall-link: #3b5998;
+  --font-sans: Arial, Helvetica, sans-serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+@layer base {
+  html {
+    background: #f7f7f7;
+    overflow-x: clip;
+  }
+
+  body {
+    overflow-x: clip;
+    margin: 0;
+    background: #f7f7f7;
+    color: #333333;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    color: #3b5998;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  :where(button, a, textarea, [tabindex]):focus-visible {
+    outline: 2px solid #3b5998;
+    outline-offset: 2px;
+  }
+}
+
+.wall-page {
+  min-height: 100dvh;
+}
+
+.wall-topbar {
+  height: 40px;
+  border-bottom: 1px solid #2f477a;
+  background: linear-gradient(#4b67a1, #3b5998);
+}
+
+.wall-logo {
+  color: #ffffff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.wall-logo:hover {
+  text-decoration: none;
+}
+
+.wall-logo span {
+  margin-left: 4px;
+  color: #d8dfea;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  vertical-align: 4px;
+}
+
+.wall-nav {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #d8dfea;
+  font-size: 11px;
+}
+
+.wall-nav a {
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.wall-nav a:hover {
+  text-decoration: underline;
+}
+
+.wall-nav span {
+  color: #c4d0e8;
+}
+
+.wall-layout {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 12px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 12px;
+}
+
+.wall-panel {
+  border: 1px solid #c9d0da;
+  background: #ffffff;
+}
+
+.wall-profile {
+  align-self: start;
+  padding: 8px;
+}
+
+.wall-profile-photo {
+  padding: 4px;
+  border: 1px solid #c9d0da;
+  background: #f2f2f2;
+}
+
+.wall-profile-name {
+  margin: 8px 0 2px;
+  color: #3b5998;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.wall-muted {
+  margin: 0;
+  color: #5f5f5f;
+  font-size: 10px;
+}
+
+.wall-profile-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin: 10px -8px -8px;
+  border-top: 1px solid #c9d0da;
+  background: #f2f4f7;
+}
+
+.wall-profile-tab {
+  padding: 5px 7px;
+  color: #3b5998;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.wall-profile-tab-active {
+  border-right: 1px solid #c9d0da;
+  border-bottom: 1px solid #ffffff;
+  background: #ffffff;
+  margin-bottom: -1px;
+}
+
+.wall-avatar {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid #9aa8bd;
+  background:
+    linear-gradient(145deg, #dce5f3, #b8c6dd);
+  color: #3b5998;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.wall-avatar-large {
+  width: 100%;
+  aspect-ratio: 1;
+  font-size: 42px;
+}
+
+.wall-avatar-small {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  font-size: 12px;
+}
+
+.wall-main {
+  min-width: 0;
+}
+
+.wall-feed-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 10px;
+  border-bottom: 1px solid #c9d0da;
+  background: #f2f4f7;
+}
+
+.wall-feed-title h2 {
+  margin: 0;
+  color: #3b5998;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.1;
+}
+
+.wall-feed-title .wall-muted {
+  margin-top: 2px;
+}
+
+.wall-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #5f5f5f;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.wall-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background: #a7a7a7;
+}
+
+.wall-live-on {
+  color: #2f6b3d;
+}
+
+.wall-live-on .wall-live-dot {
+  background: #3d9a55;
+}
+
+.wall-composer {
+  margin-top: 8px;
+  padding: 8px;
+}
+
+.wall-composer-title {
+  margin-bottom: 6px;
+  color: #333333;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.wall-textarea {
+  display: block;
+  width: 100%;
+  min-height: 58px;
+  resize: vertical;
+  border: 1px solid #bdc7d8;
+  border-radius: 0;
+  background: #ffffff;
+  padding: 6px;
+  color: #333333;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 1.35;
+  outline: none;
+}
+
+.wall-textarea:focus {
+  border-color: #3b5998;
+  box-shadow: 0 0 3px rgba(59, 89, 152, 0.45);
+}
+
+.wall-composer-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 6px;
+  border-top: 1px solid #e5e5e5;
+  padding-top: 6px;
+}
+
+.wall-count {
+  margin-right: auto;
+  color: #5f5f5f;
+  font-size: 10px;
+}
+
+.wall-count-near {
+  color: #b04a3a;
+  font-weight: 700;
+}
+
+.wall-button {
+  min-height: 26px;
+  border: 1px solid #29447e;
+  border-radius: 0;
+  background: #3b5998;
+  padding: 3px 12px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.wall-button:hover:not(:disabled) {
+  background: #2f477a;
+}
+
+.wall-button:active:not(:disabled) {
+  background: #3b5998;
+}
+
+.wall-button:disabled {
+  border-color: #b8c2d1;
+  background: #c4ccd8;
+  color: #f4f4f4;
+  cursor: not-allowed;
+}
+
+.wall-error {
+  margin: 6px 0 0;
+  border: 1px solid #e0b4ae;
+  background: #fdecea;
+  padding: 5px 6px;
+  color: #8a2a22;
+  font-size: 11px;
+}
+
+.wall-state {
+  margin-top: 8px;
+  border: 1px solid #c9d0da;
+  background: #ffffff;
+  padding: 18px 10px;
+  color: #5f5f5f;
+  font-size: 11px;
+  text-align: center;
+}
+
+.wall-state p {
+  margin: 0 0 8px;
+}
+
+.wall-feed {
+  margin-top: 8px;
+}
+
+.wall-post {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 9px 10px;
+}
+
+.wall-post:last-child {
+  border-bottom: 0;
+}
+
+.wall-post-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.wall-author {
+  color: #3b5998;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.wall-dot,
+.wall-time {
+  color: #666666;
+  font-size: 10px;
+}
+
+.wall-post-content {
+  margin: 3px 0 0;
+  color: #333333;
+  font-size: 13px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.wall-setup {
+  margin-top: 8px;
+  padding: 10px;
+}
+
+.wall-setup-title {
+  margin: 0 0 6px;
+  color: #3b5998;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+}
+
+.wall-setup p {
+  margin: 0 0 8px;
+  font-size: 11px;
+}
+
+.wall-setup ol {
+  margin: 0 0 8px 18px;
+  padding: 0;
+  font-size: 11px;
+}
+
+.wall-setup li {
+  margin-bottom: 4px;
+}
+
+.wall-setup code {
+  background: #f0f2f5;
+  padding: 0 3px;
+  font-family: "Courier New", monospace;
+  font-size: 10px;
+}
+
+.wall-footer {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border-top: 1px solid #d4d9e1;
+  padding: 8px 12px 18px;
+  color: #5f5f5f;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.wall-footer p {
+  margin: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 720px) {
+  .wall-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .wall-profile {
+    display: grid;
+    grid-template-columns: 62px minmax(0, 1fr);
+    align-items: center;
+    gap: 0 8px;
+    padding: 7px;
+  }
+
+  .wall-profile-photo {
+    grid-row: span 2;
+    width: 62px;
+    padding: 2px;
+  }
+
+  .wall-profile-photo .wall-avatar-large {
+    font-size: 20px;
+  }
+
+
+  .wall-profile-name {
+    margin: 0;
+    font-size: 14px;
+  }
+
+  .wall-profile-tabs {
+    grid-column: 1 / -1;
+    margin: 7px -7px -7px;
+  }
+
+  .wall-topbar {
+    height: 38px;
+  }
+
+  .wall-logo {
+    font-size: 19px;
+  }
+
+  .wall-nav {
+    gap: 10px;
+    font-size: 10px;
+  }
+
+  .wall-feed-title h2 {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
