@@ -20,7 +20,7 @@ login, as allowed by the brief.
 **Stack:** Next.js 16 App Router, React 19, TypeScript strict, Tailwind 4,
 `@supabase/supabase-js`, Vercel, Vitest, Playwright, axe-core.
 
-_Replace the live URL and repo URL below after deploy._
+_Replace the live URL below after deploy._
 
 Live: `https://...`
-Repo: `https://github.com/...`
+Repo: `https://github.com/Calfredo23/my-wall`

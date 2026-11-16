@@ -2,6 +2,8 @@
 
 A small 2008-style social wall built with Next.js 16, React 19, TypeScript, Tailwind CSS 4, and Supabase.
 
+[Source](https://github.com/Calfredo23/my-wall)
+
 Type a message, press **Share**, and it appears at the top of the feed. Posts are stored in Supabase and remain after a refresh. Realtime updates the feed without reloading.
 
 ## Required behavior
