@@ -15,17 +15,17 @@ Test 2 on a public Vercel URL.
 
 ## Status
 
-Implementation, Supabase integration, repo, CI, deployment, demo feed, and screenshots are
-done. A live hydration mismatch caused by server/browser timezone differences was fixed by
-pinning `formatPostTime` to `Asia/Manila`. The canonical live URL is
-`https://my-wall-coral.vercel.app`.
+Implementation, Supabase integration, repo, CI, deployment, demo feed, screenshots, and
+live verification are done. The canonical live URL is
+`https://my-wall-coral.vercel.app`. The hydration mismatch was fixed by pinning
+`formatPostTime` to `Asia/Manila`.
 
 ## Next action
 
-1. Push the timezone fix and live-link updates.
-2. Confirm the Vercel redeploy is public and has no console errors.
-3. Run a final live post → refresh → Realtime check, then submit Test 2 with the live URL,
-   repo, screenshots, and reviewer notes.
+1. Owner runs `supabase/demo-posts.sql` in the Supabase SQL editor to remove the three rows
+   added by the local E2E run and restore the four-post demo feed.
+2. Confirm the live feed is clean.
+3. Submit Test 2 with the live URL, repo, screenshots, and reviewer notes.
 
 ## Acceptance criteria
 

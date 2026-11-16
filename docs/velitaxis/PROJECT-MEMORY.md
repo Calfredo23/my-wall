@@ -32,8 +32,10 @@ newest-first ordering, Realtime, axe, and responsive checks. The public repo is
 `https://github.com/Calfredo23/my-wall`; CI passed at `af35ebb`. The public deployment is
 `https://my-wall-coral.vercel.app`; `https://my-wall.vercel.app` is an unrelated app.
 Supabase `public.posts` has RLS public select/insert, a 280-character check, and Realtime.
-Demo posts were seeded and final screenshots captured. Remaining work: push the fixed
-timezone/hydration and live-link updates, recheck the live deployment, then submit Test 2.
+Demo posts were seeded and final screenshots captured. The live smoke passed on
+`de8f27a`: canonical URL, post → reload persistence, Realtime in a second tab, and zero
+console errors. CI run `43806451793` passed. Remaining work: run `supabase/demo-posts.sql`
+once more to remove the three rows added by the local E2E run, then submit Test 2.
 
 Known deployment note: timestamps are formatted with `Asia/Manila` so the server and
 browser render identical text and do not trigger a hydration mismatch.

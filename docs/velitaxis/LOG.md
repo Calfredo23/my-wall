@@ -33,3 +33,14 @@
   timezone while the browser used the visitor’s timezone. Pinned `formatPostTime` to
   `Asia/Manila` and added an exact-format regression test.
 - Next: push the fix, verify the redeploy and live flow, then submit Test 2.
+
+## 2026-11-16 — Live verification and cleanup
+
+- Pushed `de8f27a` (`fix: stabilize timestamps across server and browser`). Vercel deployed
+  successfully; CI run `43806451793` passed both jobs.
+- Verified `https://my-wall-coral.vercel.app`: canonical and OG URLs point at the correct
+  host, a new post appears first, a second tab receives it through Realtime, reload keeps
+  it, and the page logs zero console errors.
+- Re-ran the full local suite after the timestamp change: 11 unit and 8 Playwright pass.
+  The E2E run added three temporary rows to the live feed.
+- Next: run `supabase/demo-posts.sql` to remove those rows, then submit Test 2.
