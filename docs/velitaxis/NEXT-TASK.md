@@ -15,17 +15,13 @@ Test 2 on a public Vercel URL.
 
 ## Status
 
-Implementation, Supabase integration, repo, CI, deployment, demo feed, screenshots, and
-live verification are done. The canonical live URL is
-`https://my-wall-coral.vercel.app`. The hydration mismatch was fixed by pinning
-`formatPostTime` to `Asia/Manila`.
+Everything is complete: implementation, Supabase integration, repo, CI, deployment, clean
+demo feed, refreshed screenshots, live verification, and reviewer notes. The canonical live
+URL is `https://my-wall-coral.vercel.app`.
 
 ## Next action
 
-1. Owner reruns the fixed `supabase/demo-posts.sql` to remove the duplicated demo rows and
-   restore the five-post feed.
-2. Confirm the live feed is clean.
-3. Submit Test 2 with the live URL, repo, screenshots, and reviewer notes.
+Submit Test 2 with the live URL, public repo, screenshots, and reviewer notes.
 
 ## Acceptance criteria
 

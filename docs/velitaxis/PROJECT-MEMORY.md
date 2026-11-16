@@ -27,15 +27,16 @@ Next.js 16.4.6 (App Router), React 19.3, TypeScript strict, Tailwind 4,
 ## Current state
 
 The local app is fully implemented and verified against Supabase: typecheck, lint, build,
-10 unit tests, and 8 Playwright tests pass, including post → reload persistence,
+11 unit tests, and 8 Playwright tests pass, including post → reload persistence,
 newest-first ordering, Realtime, axe, and responsive checks. The public repo is
-`https://github.com/Calfredo23/my-wall`; CI passed at `af35ebb`. The public deployment is
-`https://my-wall-coral.vercel.app`; `https://my-wall.vercel.app` is an unrelated app.
+`https://github.com/Calfredo23/my-wall`; CI run `43806451793` passed. The public deployment
+is `https://my-wall-coral.vercel.app`; `https://my-wall.vercel.app` is an unrelated app.
 Supabase `public.posts` has RLS public select/insert, a 280-character check, and Realtime.
-Demo posts were seeded and final screenshots captured. The live smoke passed on
-`de8f27a`: canonical URL, post → reload persistence, Realtime in a second tab, and zero
-console errors. CI run `43806451793` passed. Remaining work: rerun the fixed `supabase/demo-posts.sql` to remove the duplicated demo
-rows and restore the five-post feed, then submit Test 2.
+The live smoke passed: canonical URL, post → reload persistence, Realtime in a second tab,
+and zero console errors. The clean five-post feed was verified after rerunning the fixed
+demo seed, and the desktop/mobile screenshots were recaptured against it. All implementation,
+verification, deployment, and packaging work is complete; the only remaining step is
+submitting Test 2.
 
 Known deployment note: timestamps are formatted with `Asia/Manila` so the server and
 browser render identical text and do not trigger a hydration mismatch.

@@ -52,3 +52,11 @@
   E2E patterns before inserting, so it is safe to rerun.
 - Live feed currently has duplicates; one final SQL run will restore the five-post feed
   (four demo posts plus the live smoke post).
+
+## 2026-11-16 — Clean feed and final screenshots
+
+- Reran the idempotent `supabase/demo-posts.sql`. Verified the live feed has exactly five
+  posts, newest-first, with no E2E rows, no duplicates, and zero console errors.
+- Recaptured `submission/screenshots/wall-desktop.png` and `wall-mobile.png` against the
+  clean feed and refreshed the WebP images used by the README.
+- Test 2 is submission-ready: live URL, public repo, screenshots, and reviewer notes.
