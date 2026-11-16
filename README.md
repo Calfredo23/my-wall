@@ -21,7 +21,7 @@ Included extras: 280-character limit, Supabase Realtime, and optional photo uplo
 
 | Desktop | Mobile |
 |---|---|
-| ![Desktop wall with composer and feed](docs/screenshots/wall-desktop.webp) | ![Mobile wall with feed](docs/screenshots/wall-mobile.webp) |
+| ![Desktop wall with composer, feed, and uploaded photo](docs/screenshots/wall-desktop.webp) | ![Mobile wall with composer, feed, and uploaded photo](docs/screenshots/wall-mobile.webp) |
 
 ## Supabase setup
 

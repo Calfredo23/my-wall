@@ -2,8 +2,8 @@
 
 Framework Version: 1.22.1
 Current Execution Mode: BALANCED
-Project Status: FEATURE_DEVELOPMENT
-Lifecycle Stage: 8 — QA, SECURITY, ACCESSIBILITY, AND PERFORMANCE
+Project Status: SUBMISSION_READY
+Lifecycle Stage: 10 — DELIVERY AND SUBMISSION
 Owner: Cedrick Alfredo Catimbang (Calfredo)
 
 ## What this is
@@ -26,16 +26,13 @@ Next.js 16.4.6 (App Router), React 19.3, TypeScript strict, Tailwind 4,
 
 ## Current state
 
-The app now covers all three bonus items: 280-character limit, Realtime, and photo upload.
-Typecheck, lint, build, 15 unit tests, and 9 Playwright tests pass. A local photo smoke
-uploaded a PNG to the `post-images` bucket, inserted the post, rendered the image, and kept
-it after reload. The migration added `posts.image_url`, a public 5 MB bucket, and
-read/upload policies.
-
-The public repo is `https://github.com/Calfredo23/my-wall`; the public deployment is
-`https://my-wall-calfredo.vercel.app`. The new code is not deployed yet because the E2E run
-added three text rows to the live feed. Next: run `supabase/demo-posts.sql`, recapture
-screenshots, deploy, verify the live photo post, then submit Test 2.
+All three bonus items are live: 280-character limit, Realtime, and photo upload. Typecheck,
+lint, build, 15 unit tests, and 9 Playwright tests pass. A real PNG uploaded to the
+`post-images` bucket, rendered in the feed, and survived reload. The public deployment
+`https://my-wall-calfredo.vercel.app` shows six clean posts, including the photo, with the
+correct canonical URL, Live status, and zero console errors. CI run `43816580178` passed.
+Screenshots were recaptured against the clean feed. The only remaining step is submitting
+Test 2.
 
 Known deployment note: timestamps use `Asia/Manila` so server and browser render identical
 text and do not trigger a hydration mismatch.

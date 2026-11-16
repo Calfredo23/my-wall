@@ -78,3 +78,11 @@
 - Local verification: 15 unit and 9 Playwright pass. A real PNG upload rendered in the feed
   and survived reload. The E2E run added three temporary text rows.
 - Next: run `supabase/demo-posts.sql`, recapture screenshots, deploy, verify live, submit.
+
+## 2026-11-16 — Photo upload deployed
+
+- Ran the idempotent demo seed, keeping the photo post and removing the E2E rows.
+- Recaptured desktop/mobile screenshots against the clean six-post feed.
+- Deployed `52477e4`; CI run `43816580178` passed. Live verification: six posts, uploaded
+  PNG loaded from `post-images`, correct canonical URL, Live status, zero console errors.
+- Test 2 is submission-ready with all three bonus items.
