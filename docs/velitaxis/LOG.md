@@ -86,3 +86,11 @@
 - Deployed `52477e4`; CI run `43816580178` passed. Live verification: six posts, uploaded
   PNG loaded from `post-images`, correct canonical URL, Live status, zero console errors.
 - Test 2 is submission-ready with all three bonus items.
+
+## 2026-11-16 — Reviewer notes removed from public repo
+
+- Removed `submission/NOTES-FOR-REVIEWER.md` from the current tree. It remains in earlier
+  git history.
+- Added `/submission/*.md` to `.gitignore` and recorded LESSON-0001 so reviewer notes stay
+  in chat or a local ignored file.
+- Next: submit Test 2 using the live URL, repo, and screenshots.
