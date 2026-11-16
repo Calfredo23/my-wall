@@ -133,11 +133,17 @@ export function Composer({
           type="submit"
           data-testid="share-post"
           disabled={!canShare}
+          title={!canShare && image ? "Add a message before sharing" : undefined}
           className="wall-button"
         >
           {submitting ? "Sharing..." : "Share"}
         </button>
       </div>
+      {image && value.trim().length === 0 && !visibleError ? (
+        <p data-testid="photo-message-hint" className="wall-photo-hint">
+          Add a message before sharing your photo.
+        </p>
+      ) : null}
       {visibleError ? (
         <p role="alert" data-testid="composer-error" className="wall-error">
           {visibleError}

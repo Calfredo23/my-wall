@@ -122,14 +122,33 @@ test.describe("Supabase flow", () => {
   test("the composer rejects unsupported photo files", async ({ page }) => {
     await requireSupabase(page);
     const photo = page.getByTestId("wall-photo");
-    await expect(photo).toHaveAttribute("accept", "image/jpeg,image/png,image/webp");
+    await expect(photo).toHaveAttribute("accept", "image/*");
     await photo.setInputFiles({
-      name: "note.txt",
-      mimeType: "text/plain",
-      buffer: Buffer.from("not an image"),
+      name: "IMG_0001.HEIC",
+      mimeType: "image/heic",
+      buffer: Buffer.from("not a real heic"),
     });
-    await expect(page.getByTestId("composer-error")).toContainText(
-      "JPEG, PNG, or WebP",
+    await expect(page.getByTestId("composer-error")).toContainText("HEIC");
+  });
+
+  test("the composer previews a photo and asks for a message", async ({
+    page,
+  }) => {
+    await requireSupabase(page);
+    await page.getByTestId("wall-photo").setInputFiles({
+      name: "wall.png",
+      mimeType: "image/png",
+      buffer: Buffer.from(
+        "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAusB9Wl2nC8AAAAASUVORK5CYII=",
+        "base64",
+      ),
+    });
+    await expect(page.getByTestId("wall-photo-preview")).toBeVisible();
+    await expect(page.getByTestId("photo-message-hint")).toContainText(
+      "Add a message",
     );
+    await expect(page.getByTestId("share-post")).toBeDisabled();
+    await page.getByTestId("remove-photo").click();
+    await expect(page.getByTestId("wall-photo-preview")).toHaveCount(0);
   });
 });

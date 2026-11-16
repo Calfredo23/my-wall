@@ -368,6 +368,12 @@
   cursor: pointer;
 }
 
+.wall-photo-hint {
+  margin: 6px 0 0;
+  color: #5f5f5f;
+  font-size: 10px;
+}
+
 .wall-button {
   min-height: 26px;
   border: 1px solid #29447e;

@@ -11,7 +11,7 @@ describe("image validation", () => {
     expect(imageExtension("image/jpeg")).toBe("jpg");
     expect(imageExtension("image/png")).toBe("png");
     expect(imageExtension("image/webp")).toBe("webp");
-    expect(IMAGE_ACCEPT).toBe("image/jpeg,image/png,image/webp");
+    expect(IMAGE_ACCEPT).toBe("image/*");
   });
 
   it("rejects unsupported types", () => {
@@ -19,6 +19,7 @@ describe("image validation", () => {
     expect(imageFileError({ type: "text/plain", size: 10 })).toMatch(
       /JPEG, PNG, or WebP/,
     );
+    expect(imageFileError({ type: "image/heic", size: 10 })).toMatch(/HEIC/);
   });
 
   it("rejects empty and oversized files", () => {

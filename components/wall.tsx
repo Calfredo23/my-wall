@@ -15,6 +15,7 @@ import {
   type Post,
 } from "@/lib/posts";
 import { IMAGE_BUCKET, imageObjectName } from "@/lib/images";
+import { postErrorMessage, storageErrorMessage } from "@/lib/errors";
 import {
   getSupabaseClient,
 } from "@/lib/supabase/client";
@@ -166,9 +167,7 @@ export function Wall({
 
       if (uploadError) {
         setSubmitting(false);
-        setComposerError(
-          "Couldn't upload that photo. Try a JPEG, PNG, or WebP under 5 MB.",
-        );
+        setComposerError(storageErrorMessage(uploadError.message));
         return;
       }
 
@@ -192,9 +191,7 @@ export function Wall({
         await supabase.storage.from(IMAGE_BUCKET).remove([uploadedPath]);
       }
       setSubmitting(false);
-      setComposerError(
-        "Couldn't share that. Check the Supabase table and try again.",
-      );
+      setComposerError(postErrorMessage(insertError.message));
       return;
     }
 
