@@ -30,7 +30,7 @@ The local app is fully implemented and verified against Supabase: typecheck, lin
 11 unit tests, and 8 Playwright tests pass, including post → reload persistence,
 newest-first ordering, Realtime, axe, and responsive checks. The public repo is
 `https://github.com/Calfredo23/my-wall`; CI run `43806451793` passed. The public deployment
-is `https://my-wall-coral.vercel.app`; `https://my-wall.vercel.app` is an unrelated app.
+is `https://my-wall-calfredo.vercel.app`; `https://my-wall.vercel.app` is an unrelated app.
 Supabase `public.posts` has RLS public select/insert, a 280-character check, and Realtime.
 The live smoke passed: canonical URL, post → reload persistence, Realtime in a second tab,
 and zero console errors. The clean five-post feed was verified after rerunning the fixed

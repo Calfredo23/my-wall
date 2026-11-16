@@ -60,3 +60,11 @@
 - Recaptured `submission/screenshots/wall-desktop.png` and `wall-mobile.png` against the
   clean feed and refreshed the WebP images used by the README.
 - Test 2 is submission-ready: live URL, public repo, screenshots, and reviewer notes.
+
+## 2026-11-16 — Production domain renamed
+
+- Owner changed the Vercel production domain to `https://my-wall-calfredo.vercel.app`.
+  Verified HTTP 200, the five-post feed, composer, Live status, and zero console errors.
+  The old `my-wall-coral.vercel.app` now returns 404.
+- Updated the metadata fallback, README, reviewer notes, and Velitaxis state to the new
+  domain. Next: redeploy and confirm the canonical URL follows.

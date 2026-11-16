@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import "./globals.css";
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://my-wall-coral.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://my-wall-calfredo.vercel.app";
 const title = "The Wall — a 2008-style social wall";
 const description =
   "A small 2008-style social wall built with Next.js, React, and Supabase. Share a message, see it in the feed, and keep it after a refresh.";

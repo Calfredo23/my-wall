@@ -5,7 +5,7 @@
 - Vitest: 10 passing (validation, parsing, ordering, deduplication, fixed-timezone formatting).
 - Playwright: 8 passing with Supabase (post, reload persistence, newest-first, Realtime,
   over-limit rejection, axe, responsive widths, screenshots).
-- Live smoke: `https://my-wall-coral.vercel.app` — canonical URL, post → reload
+- Live smoke: `https://my-wall-calfredo.vercel.app` — canonical URL, post → reload
   persistence, Realtime in a second tab, 0 console errors.
 - CI: run `43806451793` on `de8f27a` — both jobs passed.
 - Cleanup: the local E2E run adds three `Wall test…` / `Realtime test…` rows; the fixed

@@ -17,7 +17,7 @@ Test 2 on a public Vercel URL.
 
 Everything is complete: implementation, Supabase integration, repo, CI, deployment, clean
 demo feed, refreshed screenshots, live verification, and reviewer notes. The canonical live
-URL is `https://my-wall-coral.vercel.app`.
+URL is `https://my-wall-calfredo.vercel.app`.
 
 ## Next action
 

@@ -20,5 +20,5 @@ login, as allowed by the brief.
 **Stack:** Next.js 16 App Router, React 19, TypeScript strict, Tailwind 4,
 `@supabase/supabase-js`, Vercel, Vitest, Playwright, axe-core.
 
-**Live:** https://my-wall-coral.vercel.app  
+**Live:** https://my-wall-calfredo.vercel.app  
 **Repo:** https://github.com/Calfredo23/my-wall

@@ -2,7 +2,7 @@
 
 A small 2008-style social wall built with Next.js 16, React 19, TypeScript, Tailwind CSS 4, and Supabase.
 
-Live: https://my-wall-coral.vercel.app
+Live: https://my-wall-calfredo.vercel.app
 
 [Source](https://github.com/Calfredo23/my-wall)
 
