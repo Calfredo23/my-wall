@@ -94,3 +94,17 @@
 - Added `/submission/*.md` to `.gitignore` and recorded LESSON-0001 so reviewer notes stay
   in chat or a local ignored file.
 - Next: submit Test 2 using the live URL, repo, and screenshots.
+
+## 2026-11-16 — Photo failure reasons
+
+- Changed the picker from a JPEG/PNG/WebP accept list to `image/*` so phone photos are
+  selectable; unsupported files now show a clear reason, including HEIC.
+- Added mapping for Storage and posts insert failures, so the composer prints the actual
+  Supabase reason instead of a generic line. Added a hint when a photo is selected without
+  a message.
+- Added 6 error-mapping unit tests and 2 photo UI Playwright tests. Targeted tests pass;
+  typecheck, lint, build, and 21 unit tests pass. CI run `43819009021` passed.
+- Live check: valid PNG preview works, missing-message hint appears, HEIC rejection reason
+  appears, zero console errors.
+- Next: submit Test 2. Photo-only posts remain unsupported because the database requires
+  text.

@@ -27,12 +27,13 @@ Next.js 16.4.6 (App Router), React 19.3, TypeScript strict, Tailwind 4,
 ## Current state
 
 All three bonus items are live: 280-character limit, Realtime, and photo upload. Typecheck,
-lint, build, 15 unit tests, and 9 Playwright tests pass. A real PNG uploaded to the
-`post-images` bucket, rendered in the feed, and survived reload. The public deployment
-`https://my-wall-calfredo.vercel.app` shows six clean posts, including the photo, with the
-correct canonical URL, Live status, and zero console errors. CI run `43816580178` passed.
-Screenshots were recaptured against the clean feed. The only remaining step is submitting
-Test 2.
+lint, build, and 21 unit tests pass. Playwright now covers photo validation and the
+photo/message hint; the earlier 9-test suite passed before those additions. A real PNG
+uploaded to the `post-images` bucket, rendered in the feed, and survived reload. The public
+deployment shows the photo, correct canonical URL, Live status, and zero console errors.
+CI run `43819009021` passed. The picker accepts `image/*` so phone photos are selectable; the
+composer now shows the exact reason for an unsupported type, oversized file, missing message,
+Storage failure, or database insert failure. The only remaining step is submitting Test 2.
 
 Known deployment note: timestamps use `Asia/Manila` so server and browser render identical
 text and do not trigger a hydration mismatch.
