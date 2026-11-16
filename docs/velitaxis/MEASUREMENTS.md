@@ -8,8 +8,8 @@
 - Live smoke: `https://my-wall-coral.vercel.app` — canonical URL, post → reload
   persistence, Realtime in a second tab, 0 console errors.
 - CI: run `43806451793` on `de8f27a` — both jobs passed.
-- Cleanup: the local E2E run adds three `Wall test…` / `Realtime test…` rows; run
-  `supabase/demo-posts.sql` after the suite to restore the demo feed.
+- Cleanup: the local E2E run adds three `Wall test…` / `Realtime test…` rows; run the
+  fixed `supabase/demo-posts.sql` after the suite to restore the five-post feed.
 - axe: 0 violations on the opening wall after contrast correction.
 - Responsive: no horizontal page scroll at 360, 768, and 1440.
 

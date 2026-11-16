@@ -44,3 +44,11 @@
 - Re-ran the full local suite after the timestamp change: 11 unit and 8 Playwright pass.
   The E2E run added three temporary rows to the live feed.
 - Next: run `supabase/demo-posts.sql` to remove those rows, then submit Test 2.
+
+## 2026-11-16 — Demo seed made idempotent
+
+- Rerunning `supabase/demo-posts.sql` duplicated three demo rows because only one content
+  string was deleted first. Updated the script to delete all four demo contents plus the
+  E2E patterns before inserting, so it is safe to rerun.
+- Live feed currently has duplicates; one final SQL run will restore the five-post feed
+  (four demo posts plus the live smoke post).

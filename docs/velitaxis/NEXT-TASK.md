@@ -22,8 +22,8 @@ live verification are done. The canonical live URL is
 
 ## Next action
 
-1. Owner runs `supabase/demo-posts.sql` in the Supabase SQL editor to remove the three rows
-   added by the local E2E run and restore the four-post demo feed.
+1. Owner reruns the fixed `supabase/demo-posts.sql` to remove the duplicated demo rows and
+   restore the five-post feed.
 2. Confirm the live feed is clean.
 3. Submit Test 2 with the live URL, repo, screenshots, and reviewer notes.
 
